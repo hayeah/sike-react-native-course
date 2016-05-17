@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="564px" height="476px" viewBox="0 0 564 476" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>animated-graph-gesture-driven</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="2.84217094e-14" y="0" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="0" y="138" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <rect id="path-7" x="0" y="0" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-7"></use>
+        </mask>
+        <rect id="path-9" x="5.68434189e-14" y="0" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-9"></use>
+        </mask>
+        <rect id="path-11" x="0" y="0" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-12" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-11"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="animated-graph-gesture-driven">
+            <g id="value" transform="translate(148.896142, 269.688172)">
+                <use id="Rectangle-1" stroke="#979797" mask="url(#mask-2)" stroke-width="3.56083086" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <text id="Animated.Value" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="44" y="36">Animated.Value</tspan>
+                </text>
+            </g>
+            <g id="spring" transform="translate(0.890208, 138.000000)">
+                <use id="Rectangle-1-Copy-2" stroke="#979797" mask="url(#mask-4)" stroke-width="3.56083086" fill="#FFFFFF" xlink:href="#path-3"></use>
+                <text id="Animated.spring" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="40.9495549" y="36.4569892">Animated.spring</tspan>
+                </text>
+            </g>
+            <g id="spring-copy" transform="translate(284.000000, 0.000000)">
+                <use id="Rectangle-1-Copy-2" stroke="#FF3D3D" mask="url(#mask-6)" stroke-width="3.56083086" fill="#FFFFFF" xlink:href="#path-5"></use>
+                <use id="Rectangle-1-Copy-3" stroke="#FF3D3D" mask="url(#mask-8)" stroke-width="3.56083086" fill="#FFFFFF" xlink:href="#path-7"></use>
+                <text id="Animated.event" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="40.9495549" y="174.456989">Animated.event</tspan>
+                </text>
+                <text id="gesture-events" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="46" y="36">gesture events</tspan>
+                </text>
+            </g>
+            <g id="view-copy" transform="translate(2.000000, 422.596774)">
+                <use id="Rectangle-1-Copy" stroke="#979797" mask="url(#mask-10)" stroke-width="3.56083086" xlink:href="#path-9"></use>
+                <text id="Animated.View" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="46.2908012" y="36.4569892">Animated.View</tspan>
+                </text>
+            </g>
+            <g id="view-copy-2" transform="translate(296.000000, 422.596774)">
+                <use id="Rectangle-1-Copy" stroke="#979797" mask="url(#mask-12)" stroke-width="3.56083086" xlink:href="#path-11"></use>
+                <text id="Animated.View" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="46.2908012" y="36.4569892">Animated.View</tspan>
+                </text>
+            </g>
+            <path d="M219.216617,341.760753 L219.216617,398.706989" id="Line-Copy-3" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path id="Line-Copy-3-decoration-1" d="M219.216617,398.706989 L222.216617,387.906989 L216.216617,387.906989 L219.216617,398.706989 Z" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path d="M343.845697,341.760753 L343.845697,398.706989" id="Line-Copy-4" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path id="Line-Copy-4-decoration-1" d="M343.845697,398.706989 L346.845697,387.906989 L340.845697,387.906989 L343.845697,398.706989 Z" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path d="M220.551929,199.395161 L220.551929,256.341398" id="Line-Copy" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path id="Line-Copy-decoration-1" d="M220.551929,256.341398 L223.551929,245.541398 L217.551929,245.541398 L220.551929,256.341398 Z" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path d="M349.670623,199.889785 L349.670623,256.836022" id="Line-Copy-2" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path id="Line-Copy-2-decoration-1" d="M349.670623,256.836022 L352.670623,246.036022 L346.670623,246.036022 L349.670623,256.836022 Z" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path d="M416.670623,64.8897849 L416.670623,121.836022" id="Line-Copy-5" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path id="Line-Copy-5-decoration-1" d="M416.670623,121.836022 L419.670623,111.036022 L413.670623,111.036022 L416.670623,121.836022 Z" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>

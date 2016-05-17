@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="640px" height="400px" viewBox="0 0 640 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>animated-objects-parallel</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="0" y="0" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="1" y="43" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <rect id="path-7" x="2.84217094e-14" y="0" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-7"></use>
+        </mask>
+        <rect id="path-9" x="5.68434189e-14" y="0" width="267.062315" height="53.3870968"></rect>
+        <mask id="mask-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="267.062315" height="53.3870968" fill="white">
+            <use xlink:href="#path-9"></use>
+        </mask>
+        <rect id="path-11" x="0" y="0" width="640" height="257.870968"></rect>
+        <mask id="mask-12" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="640" height="257.870968" fill="white">
+            <use xlink:href="#path-11"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="animated-objects-parallel">
+            <g id="value" transform="translate(36.000000, 194.000000)">
+                <use id="Rectangle-1" stroke="#979797" mask="url(#mask-2)" stroke-width="3.56083086" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <text id="Animated.Value" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="44" y="36">Animated.Value</tspan>
+                </text>
+            </g>
+            <g id="value-copy" transform="translate(334.000000, 194.000000)">
+                <use id="Rectangle-1" stroke="#979797" mask="url(#mask-4)" stroke-width="3.56083086" fill="#FFFFFF" xlink:href="#path-3"></use>
+                <text id="Animated.Value" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="44" y="36">Animated.Value</tspan>
+                </text>
+            </g>
+            <g id="spring" transform="translate(35.000000, 20.000000)">
+                <use id="Rectangle-1-Copy-2" stroke="#979797" mask="url(#mask-6)" stroke-width="3.56083086" fill="#FFFFFF" xlink:href="#path-5"></use>
+                <text id="Animated.timing" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="41.9495549" y="79.4569892">Animated.timing</tspan>
+                </text>
+                <text id="Animated.parallel" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="0" y="24">Animated.parallel</tspan>
+                </text>
+            </g>
+            <g id="spring-copy-2" transform="translate(334.000000, 63.000000)">
+                <use id="Rectangle-1-Copy-2" stroke="#979797" mask="url(#mask-8)" stroke-width="3.56083086" fill="#FFFFFF" xlink:href="#path-7"></use>
+                <text id="Animated.timing" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="40.9495549" y="36.4569892">Animated.timing</tspan>
+                </text>
+            </g>
+            <g id="view-copy" transform="translate(184.000000, 346.596774)">
+                <use id="Rectangle-1-Copy" stroke="#979797" mask="url(#mask-10)" stroke-width="3.56083086" xlink:href="#path-9"></use>
+                <text id="Animated.View" font-family="HelveticaNeue, Helvetica Neue" font-size="24.925816" font-weight="normal" fill="#232323">
+                    <tspan x="46.2908012" y="36.4569892">Animated.View</tspan>
+                </text>
+            </g>
+            <path d="M253.216617,268.760753 L253.216617,325.706989" id="Line-Copy-3" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path id="Line-Copy-3-decoration-1" d="M253.216617,325.706989 L256.216617,314.906989 L250.216617,314.906989 L253.216617,325.706989 Z" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path d="M377.845697,268.760753 L377.845697,325.706989" id="Line-Copy-4" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path id="Line-Copy-4-decoration-1" d="M377.845697,325.706989 L380.845697,314.906989 L374.845697,314.906989 L377.845697,325.706989 Z" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path d="M182.551929,126.395161 L182.551929,183.341398" id="Line-Copy" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path id="Line-Copy-decoration-1" d="M182.551929,183.341398 L185.551929,172.541398 L179.551929,172.541398 L182.551929,183.341398 Z" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path d="M480.670623,126.889785 L480.670623,183.836022" id="Line-Copy-7" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <path id="Line-Copy-7-decoration-1" d="M480.670623,183.836022 L483.670623,173.036022 L477.670623,173.036022 L480.670623,183.836022 Z" stroke="#232323" stroke-width="1.78041543" stroke-linecap="square"></path>
+            <use id="Rectangle-32" stroke="#979797" mask="url(#mask-12)" stroke-width="2" xlink:href="#path-11"></use>
+        </g>
+    </g>
+</svg>
