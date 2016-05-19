@@ -277,7 +277,23 @@ Object {container: 99, welcome: 100, instructions: 101}
 
 So the `StyleSheet.create` method replaces the style objects with integer IDs!
 
+# Testing On Real Device
+
+You should start testing on real devices as soon as possible, for two reasons:
+
+1. To make sure that the app feels smooth.
+2. Clicking buttons in the emulator dosen't give you an adequate sense of what the app feels like.
+
+And also, hardware features (e.g. camera) only work on a real device...
+
+[Running on iPhone](https://facebook.github.io/react-native/docs/running-on-device-ios.html#content)
+
+[Running on Android](https://facebook.github.io/react-native/docs/running-on-device-android.html#content)
+
+
 # Summary
+
+We've got ReactNative running, yay! You should now be familiar with the development environment:
 
 + `react-native start` to start the project packager.
 + Enable live-reload to speed up development.

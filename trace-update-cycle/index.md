@@ -294,31 +294,11 @@ You can start by finding the `updateView` method of `com.facebook.react.uimanage
 
 <video src="AndroidStudio-find-updateView.mp4" controls="true"></video>
 
-# Testing On Real Device
-
-You should start testing on real devices as soon as possible, for two reasons:
-
-1. To make sure that the app feels smooth.
-2. Clicking buttons in the emulator dosen't give you an adequate sense of what the app feels like.
-
-And also, hardware features (e.g. camera) only work on a real device...
-
-[Running on iPhone](https://facebook.github.io/react-native/docs/running-on-device-ios.html#content)
-
-[Running on Android](https://facebook.github.io/react-native/docs/running-on-device-android.html#content)
-
 # Summary
 
-We've got ReactNative running, yay!
+You should know how the update cycle works:
 
-You should be familiar with the development environment:
-
-+ The packager is the JavaScript project builder.
-+ Use live-reload to develop app.
 + Be familiar with both the Xcode debugger and Chrome debugger.
-
-You should know how an update cycle works:
-
 + RCTShadowView helps to prevent unnecessary layout.
 + Component updates are queued, and processed asynchronously in batches.
 + The JavaScript debugger runs in the browser, and communicates with the native side through websocket.
