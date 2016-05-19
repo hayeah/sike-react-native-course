@@ -1,40 +1,53 @@
-# Same Same But Different, Cross-Platform ReactNative
+# Cross-Platform Timer App
 
 In this lesson we are going to build a timer app, and make it run on both iOS and Android.
 
-Although it's possible to share 100% of the code between your iOS and Android apps, making them exactly the same is usually not the best way to optimize user experience for iOS or Android fans.
+<video src="timer-running-android.mp4" controls="true"></video>
 
-Code sharing is definitely a great advantage, but a less obvious advantage of ReactNative is how easy it is to build _platform-specific_ apps! The goal is not "write once, run everywhere", but to build apps that feel native to users regardless of their platform.
+By building this simple app, you will:
 
-As you build the timer app, you will:
-
-+ View, Text, Image. The fundamental building blocks of React Native.
++ Learn the the fundamental building blocks of React Native: `View`, `Text`, and `Image`.
++ Learn the coding conventions of a ReactNative project.
++ Become familiar with the ReactNative development workflow.
 + Use flex to implement an adaptive layout that works for different screen sizes and orientations.
 
-Note: ReactNative Android newer than ReactNative iOS, and you should expect to encounter bugs. If you run into weird problems, search [ReactNative Android Issues](https://github.com/facebook/react-native/labels/Android) to see if its a bug. In general, get iOS to work first, then pray that it works on Android.
+<Warning>
+# ReactNative Android, The New IE6
+
+Expect to encounter bugs.
+
+If you run into weird problems, search [ReactNative Android Issues](https://github.com/facebook/react-native/labels/Android) to see if its a bug. In general, get iOS to work first, then pray that it works on Android.
+</Warning>
+
+<Note>
+# Write 1.5 Times, Maybe Run Everywhere
+
+Code sharing is definitely a great advantage, but a less obvious advantage of ReactNative is how easy it is to build _platform-specific_ apps!
+
+Although it's possible to share 100% of the code between your iOS and Android apps, making them exactly the same is usually not the best way to optimize user experience for iOS or Android fans.
+
+The goal is not "write once, run everywhere", but to build apps that feel native to users regardless of their preferred platforms.
+</Note>
 
 # Mobile-First Responsive Design
 
-The day when you could manually tweak your UI for different screen sizes is long gone. To develop for both iOS and Android, you'd have to learn the layout systems of both platforms. And layout systems take a long time to learn. There are nuances, quirks/bugs, and weird tricks specific to each system.
+Transitioning from responsive design for the web to responsive design *for the mobile phone* takes a bit of mental adjustment.
 
-Now, of course, we can use flexbox. Learn once and write everywhere!
-
-A typical responsive design for the web would optimize design for the desktop:
+Responsive design for the web typically optimizes for the desktop experience. While the page works for any screen size, the user experience can range from barely usable to hilarious:
 
 <video src="web-first-responsive.mp4" controls="true"></video>
 
 [@darylginn](https://twitter.com/darylginn)
 
+On mobile, we only care about a limited range of rectangles that fit in the hand (10~15cm diagonally). To deliver the best mobile user experience, we should focus our design for this more limited canvas.
 
-While the page works for any screen size, the user experience can range from barely usable to hilarious.
+In fact, we often don't even care about supporting the landscape orientation. Most of the time your users hold the phone vertically, and that's the experience we should optimize for.
 
-On mobile, we DON'T CARE if our app doesn't work for screen sizes larger than the phone. We only care about a limited range of rectangles 10~15cm (4~6") diagonally that fit in the hand. To deliver the best mobile user experience, our goal must be focused.
-
-In fact, we don't even care about supporting the landscape orientation. Most apps are optimized for the portrait orientation only. For example, Instagram uses square images, and Vine uses square videos. This is because a square fits well in a vertical rectangle, and leaves room for other UI elements:
+For example, Instagram uses square images, and Vine uses square videos. This design choice makes sense because a square fits in a vertical rectangle, yet still leaves plenty of space for other UI elements:
 
 ![](vine-app.jpg)
 
-Most of the time your users hold the phone vertically, and that's what we should optimize for.
+On mobile platforms, you'd often see apps that works great for the phone, but is crappy for tablets.
 
 # App Layout With Flex
 
@@ -46,26 +59,24 @@ In landscape mode:
 
 ![](app-layout-landscape.jpg)
 
-The UI elements should be centered in these two boxes. We could try a different layout:
+The UI elements should be centered in these two boxes. We could also try a different layout:
 
 ![](app-layout-even.jpg)
 
 ### Exercise: Implement The App Layout
 
-+ Create the `App` component. Call it `App.js`.
-  + Note: The extension must be ".js", not ".jsx". [Issue: #2303](https://github.com/facebook/react-native/issues/2303)
-+ Modify both `index.io.js` and `index.android.js` to use the App component.
-+ The flex-grow ratio of the two boxes is 5:1.5.
+We'll modify both `index.io.js` and `index.android.js` to import and use the same App component.
+
+Create `App.js`:
 
 ```js
-const React = require('react-native');
-
-const {
+import {
   StyleSheet,
   View,
-} = React;
+  Component,
+} from "react-native";
 
-const App = React.createClass({
+export class App extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -78,7 +89,7 @@ const App = React.createClass({
       </View>
     );
   },
-});
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -96,11 +107,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,255,0,0.3)',
   },
 });
-
-export default App;
 ```
 
-To make a container 100%, use these two flexbox properties:
++ The extension must be `.js`, not `.jsx`.
+  + See: [Issue #2303](https://github.com/facebook/react-native/issues/2303)
+
+To make a container 100%, use the following two flexbox styles together:
 
 ```
 /* Similar to width: 100%; height: 100% */
@@ -110,21 +122,19 @@ container: {
 }
 ```
 
-It doesn't matter whether the `flex-direction` of the parent container is `row` or 'column', the container will be 100%. We'll use this trick a lot.
+This is a layout trick we'll use a lot. It doesn't matter whether the `flex-direction` of the parent container is `row` or `column`, the container will be 100%.
 
-Note: [Rotate iPhone Screen](http://stackoverflow.com/questions/9071316/iphone-simulator-screen-rotation) by `cmd-left-arrow` or `cmd-right-arrow`.
+Test different orientations by [rotating the iPhone emulator](http://stackoverflow.com/questions/9071316/iphone-simulator-screen-rotation) using `cmd-left-arrow` or `cmd-right-arrow`.
 
 Your result:
 
 ![](app-layout-result.jpg)
 
-### git-tag: app-layout
+## The View Component
 
-### The View Component
+The `View` component like a `div`. There are no other semantic tags like p, section, table... so just use `View` everywhere.
 
-The `View` component is used like a div. There are no other semantic tags like p, section, table... So just use `View` everywhere. (And there's no span)
-
-The [Default Values](https://github.com/facebook/css-layout#default-values) for View:
+The [Default CSS Styles](https://github.com/facebook/css-layout#default-values) for `View` is different from browser defaults:
 
 ```css
 View {
@@ -144,13 +154,10 @@ View {
 }
 ```
 
-Documentation:
+See documentation:
 
 + [React Native View](https://facebook.github.io/react-native/docs/view.html#style)
 + [Flex Box Properties](https://facebook.github.io/react-native/docs/flexbox.html#proptypes)
-
-Aside from the documentation, you should build a habit to search [ReactNative GitHub Issues](https://github.com/facebook/react-native/issues) to see if other people ran into the same problem.
-
 
 # Create Responsive UI Components
 

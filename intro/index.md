@@ -1,7 +1,6 @@
 # Getting Started With React Native
 
-In this lesson we are going to get React Native up and running. It's a tedious process to get everything installed, and you'd probably trip up by missing environmental variables here and there...
-
+In this lesson we are going to get React Native up and running. It's a tedious process to get everything installed.
 Once you've got it all working, it's a fabulous development environment.
 
 # Setup Xcode and Android SDK
@@ -10,11 +9,15 @@ Once you've got it all working, it's a fabulous development environment.
 
 # Create React Native Project
 
-+ [Create ReactNative Project Quickly](../create-new-project)
+```sh
+$ react-native init HelloReactNative --verbose
+```
 
-# Running ReactNative Packager
+The `init` command will install react-native and all its dependencies from npm. This will take a long time.
 
-Instead of using an existing tool like Webpack, ReactNative has its own project building tool. Thankfully you can use the tool right out of the box-- there is no setting up necessary.
+# Running React Native Packager
+
+Instead of using an existing tool like Webpack, ReactNative has its own project building tool. Thankfully you can use the tool right out of the box without having to configure anything.
 
 The ReactNative build tool is called the packager. It has some features that are the same as Webpack:
 
@@ -27,12 +30,13 @@ And it has some features specifically built for ReactNative development:
 + Loading platform specific source files. (i.e. `foo.android.js` and `foo.ios.js`)
 + Static image assets for apps.
 + Live-reload.
++ Running ReactNative code in Chrome devtool.
 
 In development mode the packager is a web server, and your ReactNative app loads the bundled JavaScript project from the packager by making a web request:
 
 ![](react-native-dev-setup.jpg)
 
-By default the packager will listen on port 8081. To start the packager, run the following command at the root of the project:
+To start the packager, run the following command at the root of the project:
 
 ```sh
 $ react-native start
@@ -67,6 +71,8 @@ React packager ready.
 [9:49:31 PM] <END>   Building Haste Map (4003ms)
 [9:49:31 PM] <END>   Building Dependency Graph (14440ms)
 ```
+
++ By default the packager will listen on port 8081.
 
 Test to see if you can get the bundled project from the packager:
 
@@ -113,7 +119,7 @@ If we want the Android project:
 curl "http://localhost:8081/index.android.bundle?platform=android&dev=true"
 ```
 
-## Running ReactNative iOS
+# Running ReactNative iOS
 
 Open the Xcode project and run the app, you should see:
 
@@ -169,7 +175,7 @@ The `run-android` command is essentially invoking "gradlew", the official Androi
 
 ReactNative has excellent development tools to make you more productive.
 
-### Live Reload
+## Live Reload
 
 For even a small to medium sized project, it could take a painful 30~60 seconds to rebuild an app to test the changes you've made. ReactNative's packager is fast, so you can see the changes you've made instantaneously.
 
@@ -185,7 +191,7 @@ To enable live-reload for Android:
 
 Try making changes to `index.android.js`, you should see the new result immediately.
 
-### console.log
+## console.log
 
 Let's try to log "Hello React" once every second, and see where it goes. Add to both `index.ios.js` and `index.android.js`:
 
@@ -219,7 +225,7 @@ If you use Android Studio to run the project, you can find the log here:
 
 ![](android-studio-log-area.jpg)
 
-### Error Screen
+## Error Screen
 
 If your app throws an error, ReactNative shows you the famous "Red Screen of Death" (instead of crashing).
 
@@ -237,7 +243,7 @@ You should see the error stacktrace. It tells you the exact line and file where 
 
 Try Android.
 
-### Debugging
+## Debugging
 
 The debugger is not just useful for debugging.
 
