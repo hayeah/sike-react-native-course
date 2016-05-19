@@ -11,6 +11,31 @@ module.exports = {
     "trace-update-cycle": {
       repo: "rn-timer",
     },
+
+
+    "scrollview": {
+      repo: "rn-tumblr",
+    },
+
+    "tumble-photopost-layout": {
+      repo: "rn-tumblr",
+    },
+
+    "cross-platform-pager": {
+      repo: "rn-tumblr",
+    },
+
+    "tumble-image-modal": {
+      repo: "rn-tumblr",
+    },
+
+    "animated-intro": {
+      repo: "rn-tumblr",
+    },
+
+    "tumble-animate-image-modal": {
+      repo: "rn-tumblr",
+    },
   }
 }
 
