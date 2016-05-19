@@ -159,28 +159,27 @@ See documentation:
 + [React Native View](https://facebook.github.io/react-native/docs/view.html#style)
 + [Flex Box Properties](https://facebook.github.io/react-native/docs/flexbox.html#proptypes)
 
-# Create Responsive UI Components
+# Responsive UI Components
 
 Now we have the basic app layout, let's create UI components. We'll use this boilerplate template:
 
-[Download Component.js](FooComponent.js)
-
 ```js
-import React from 'react-native';
+import React from 'react';
 
-const {
+import {
   StyleSheet,
   View,
-} = React;
+  Component,
+} from 'react-native';
 
-export default React.createClass({
+export class Foo extends Component {
   render() {
     return (
       <View style={styles.container}>
       </View>
     );
   },
-});
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -190,9 +189,13 @@ const styles = StyleSheet.create({
 });
 ```
 
-It may be surprising to see that we are making the component to be 100% of the size of its parent:
+[Download FooComponent.js](FooComponent.js)
 
-```
+Our goal is to make our components "responsive", so that it can arrange its content reasonably well when given different amount of space by the layout.
+
+Notice that the component is 100% of the size of its parent:
+
+```js
 /* Similar to width: 100%; height: 100% */
 container: {
   flex: 1,
@@ -200,11 +203,9 @@ container: {
 }
 ```
 
-These two properties make the component adjust its size automatically. Our goal is to make our components "responsive", so that it can arrange its content reasonably well when given different amount of space by the layout.
+This makes it easy to plug the components into a layout:
 
-For example, we could define plug our components into the layout like this:
-
-```js
+```xml
 <View style={styles.container}>
 
   <View style={styles.timerDisplayLayout}>
@@ -217,17 +218,17 @@ For example, we could define plug our components into the layout like this:
 </View>
 ```
 
-The components should adjust automatically if we decide to change the layout:
+If we decide to change the layout, the content inside a responsive component should adjust automatically. :
 
 ![](flexible-components.jpg)
 
-Again, we don't care about making our component reponsive for *every* possible sizes. We only need the component to work well for a limited range of rectangles that are similarly shaped.
+Again, we don't care about making our component reponsive for *every* possible sizes. We only need the component to work well for a limited range of rectangles that are similarly shaped:
 
 ![](similar-ratio-rectangles.jpg?)
 
 ### Exercise: Timer Circle
 
-+ Create the `<TimerDisplay>` component.
++ Create the `TimerDisplay` component.
 
 The JSX:
 
@@ -252,11 +253,11 @@ Your result:
 
 ![](result-timer-circle.jpg)
 
-### git-tag: timer-circle
-
 # The Text Component
 
-We are going to meet the builtin [Text](https://facebook.github.io/react-native/docs/text.html) component, which is the `span` of ReactNative. It's used to show text content, and it grows automatically to wrap the amount of text. There are two big differences from HTML.
+Let's meet the native [Text](https://facebook.github.io/react-native/docs/text.html) component, which is the `span` of ReactNative. It's used to show text content, and it grows automatically to wrap the amount of text.
+
+There are two big differences from HTML.
 
 1. You can't have text without the `Text` component.
 
@@ -282,7 +283,6 @@ We are going to meet the builtin [Text](https://facebook.github.io/react-native/
   Instead, you must set the style of each Text component individually:
 
   ```html
-  // Doesn't work!
   <View>
     <Text style={{color: "#fff"}}>Some Text Content</Text>
 
@@ -298,11 +298,7 @@ We are going to meet the builtin [Text](https://facebook.github.io/react-native/
 
 The JSX:
 
-```
-import React from "react-native";
-
-const {Text} = React;
-
+```js
 <View style={styles.container}>
   <View style={styles.timerCircle}>
     <View style={styles.displayContainer}>
@@ -319,13 +315,13 @@ const {Text} = React;
 </View>
 ```
 
-Note: Aside from centering the `displayContainer`, you'll also need to use margin to tweak the labels slightly so they line up.
-
-![](timer-text-display-tweak.jpg)
-
 Your result:
 
 ![](result-timer-text-display.jpg)
+
+Hint: You might need to use margin to tweak the labels so the text line up.
+
+![](timer-text-display-tweak.jpg)
 
 # Static Images
 
@@ -335,7 +331,7 @@ Next, we'll see how to use images as buttons. The assets we'll use:
 
 Clone the assets into your project:
 
-```
+```sh
 git clone https://github.com/hayeah/react-native-Timer-assets.git img
 ```
 
@@ -357,21 +353,21 @@ See [React Native Images](https://facebook.github.io/react-native/docs/images.ht
 
 ### Exercise: Start Button
 
-+ Create a `Controls` component.
++ Create the `Controls` component.
 + Add the start icon inside the `Controls` component.
 + Change `tintColor` of the image so the icon becomes white.
 
 You can use `require` to load the image as though it is a JavaScript module:
 
-```
+```js
 <Image source={require("./img/start-icon.png")}/>
 ```
 
-I prefer to create an dictionary of all the image assets (you could write a little program to generate this automatically for your project).
+Instead of hardwiring the asset paths, it's better to create an dictionary of all the image assets:
 
 ```
-// sources.js
-export default {
+// theme.js
+export const icons = {
   background: require("./img/bg.png"),
   pause: require("./img/pause-icon.png"),
   reset: require("./img/reset-icon.png"),
@@ -382,9 +378,9 @@ export default {
 We can then write the Image tag this way:
 
 ```
-import sources from "./sources";
+import { icons } from "./theme";
 
-<Image source={sources.start}/>
+<Image source={icons.start}/>
 ```
 
 Your result:
@@ -393,21 +389,17 @@ Your result:
 
 ### Exercise: Reset Button
 
-Use absolute positioning. When in doubt, add an extra container.
-
-Note: [Rotate iPhone Screen](http://stackoverflow.com/questions/9071316/iphone-simulator-screen-rotation) by `cmd-left-arrow` or `cmd-right-arrow`.
-
 Your result:
 
 ![](result-reset-button.jpg)
-
-### git-tag: control-icons
 
 ### Exercise: Test Android
 
 Now it's a good time to check that our app works on Android as well.
 
-```
+Build and deploy the Android App:
+
+```sh
 react-native run-android
 ```
 
@@ -415,7 +407,7 @@ Your result:
 
 ![](result-android-with-controls-and-display.jpg)
 
-The default font for Android is different, so the timer display looks a bit different.
+The timer display looks a little different because Android has a different system font..
 
 # Background Image
 
@@ -425,25 +417,17 @@ We'll need to resize the background image to fill the entire screen. The [resize
 
 Huh? What is `Object.keys(ImageResizeMode)`? If the documentation doesn't give you enough information, you'd have to dig into the code.
 
-The source code naming convention is straight forward. The Image component's file name is `Image.ios.js` or `Image.android.js`. Let's search for it on GitHub (press T to start searching):
+The source code naming convention is straight forward. The `Image` component's file name is either `Image.ios.js` or `Image.android.js`.
+
+Let's search for it on GitHub (press T to start searching):
 
 <video src="search-for-image.ios.js.mp4" controls="true"></video>
 
 And here we have it: [Image.ios.js L106-L121](https://github.com/facebook/react-native/blob/4511993ffaf503b902fb9741c396eaa090a5662e/Libraries/Image/Image.ios.js#L106-L121)
 
-Don't be afraid to look into the source... you'll have to do it quite often.
-
 ### Exercise: Set Background Image
 
-There is one strange pitfall to watch out for. The default background color of a container is `#fff`, if you don't change the container to a transparent background, the image won't show.
-
-```
-container: {
-  flex: 1,
-  alignSelf: 'stretch',
-  backgroundColor: 'transparent',
-},
-```
+The default background color of a view is `#fff`, if you don't change the container to a transparent background, its background color could obscure the background image.
 
 Your result:
 
@@ -455,33 +439,30 @@ And if we rotate...
 
 (╯°□°)╯︵ ┻━┻
 
-### git-tag: background-image
-
 # Bug Or Feature?
 
 OK, it looks like that the background image doesn't automatically resize when we rotate. Whether this is a bug or a feature depends whether there's a [GitHub Issue for Image Resize](https://github.com/facebook/react-native/issues?utf8=%E2%9C%93&q=is%3Aissue+image+resize+).
 
-There's nothing on GitHub about this, so you could:
+Depending on what you see, you could:
 
 1. Create an issue to report the bug, and see how the community responds.
 2. Work around the problem.
 
-In our case, we'll choose 2, and learn a useful layout technique as we fix the problem!
+In our case, we'll choose 2. We'll fix the problem by learning how to manually calculate simple layouts.
 
-# Manually Adjusting Layout
+# Manual Layout
 
-We need to manually set the size of the background image.
+The [View onLayout](https://github.com/facebook/react-native/blob/4511993ffaf503b902fb9741c396eaa090a5662e/Libraries/Components/View/View.js#L204-L213) callback can give us the size and position of a `View` if its layout changes. Let's add an `onLayout` callback to the App container. Add to `App.js`:
 
-The [View onLayout](https://github.com/facebook/react-native/blob/4511993ffaf503b902fb9741c396eaa090a5662e/Libraries/Components/View/View.js#L204-L213) callback can give us the size and position of a `View` if its layout changes. Let's add an `onLayout` callback to the App container, since it's the same size as the screen. Add to `App.js`:
-
-```
+```js
 onLayout(e) {
   console.log("App rotated",e.nativeEvent.layout);
-},
-
+}
 ...
 
-<View onLayout={this.onLayout} style={styles.container}>
+render() {
+  <View onLayout={this.onLayout} style={styles.container}>
+}
 ```
 
 Try rotate (cmd-left or cmd-right) the screen, and you should see these logs in Xcode:
@@ -499,15 +480,19 @@ Try rotate (cmd-left or cmd-right) the screen, and you should see these logs in 
 + Use `setState` to track App container's current width and height.
 + Merge style properties by using an array of style objects:
 
-  ```
-  <Image style={[styles.backgroundImage,{width: screenWidth,height: screenHeight}]} source={sources.background}/>
-  ```
+```js
+<Image style={[
+  styles.backgroundImage,
+  {
+    width: screenWidth,
+    height: screenHeight
+  }]}
+  source={sources.background}/>
+```
 
 Your result:
 
 <video src="result-background-rotate.mp4" controls="true"></video>
-
-### git-tag: background-rotate
 
 ## MeasureLayoutContainer
 
@@ -528,7 +513,7 @@ The API:
 ```
 
 + `this.props.children` is a render function.
-+ MeasureLayoutContainer calls the function with the layout.
++ MeasureLayoutContainer calls the render function once the layout is known.
 
 ### Exercise: Implement MeasureLayoutContainer
 
@@ -544,105 +529,15 @@ const styles = StyleSheet.create({
 });
 ```
 
-### git-tag: measure-layout-container
+# Touchable Components
 
-# Handling Touches is Complicated
+The Touchable family of builtin components are like the `a` or `button` of HTML, but it is more sophisticated than 'click'. On the touch screen, what a "touch event" could mean is ambiguous.
 
-Now we've finished the layout, let's make the buttons respond to touches. It's rather complicated in theory, but pretty simple in practice.
++ Is it a tap?
++ Is it a swipe?
++ Is it a scroll?
 
-Fundamentally, touches are a sequence of coordinates, and ReactNative pass these coordinates to you as you drag your finger across a view. You can use the `onTouch*` family of callbacks to see this (this is undocumented "low-level API").
-
-Let's try adding `onTouch*` callbacks to the `App` component:
-
-```js
-onTouchStart(e) {
-  console.log("touch start",e.nativeEvent);
-},
-
-onTouchMove(e) {
-  console.log("touch move",e.nativeEvent);
-},
-
-onTouchEnd(e) {
-  console.log("touch end",e.nativeEvent);
-},
-
-<View
-  onTouchStart={this.onTouchStart}
-  onTouchMove={this.onTouchMove}
-  onTouchEnd={this.onTouchEnd}
-  >
-```
-
-Try clicking in the emulator, you should see these touch events:
-
-```
-2016-01-30 11:06:23.681 [trace][tid:com.facebook.React.JavaScript] 'touch start', { target: 9,
-  pageY: 432.3333282470703,
-  locationX: 335,
-  changedTouches: [ [Circular] ],
-  locationY: 432.3333282470703,
-  identifier: 1,
-  pageX: 335,
-  touches: [ [Circular] ],
-  timestamp: 113201087.923908 }
-2016-01-30 11:06:23.818 [trace][tid:com.facebook.React.JavaScript] 'touch end', { target: 9,
-  pageY: 432.3333282470703,
-  locationX: 335,
-  changedTouches: [ [Circular] ],
-  locationY: 432.3333282470703,
-  identifier: 1,
-  pageX: 335,
-  touches: [],
-  timestamp: 113201219.766913 }
-```
-
-Try dragging, and you should see a lot more touch events:
-
-```
-2016-01-30 11:08:31.330 [trace][tid:com.facebook.React.JavaScript] 'touch move', { target: 9,
-  pageY: 321,
-  locationX: 104,
-  changedTouches: [ [Circular] ],
-  locationY: 321,
-  identifier: 1,
-  pageX: 104,
-  touches: [ [Circular] ],
-  timestamp: 113328738.848152 }
-2016-01-30 11:08:31.386 [trace][tid:com.facebook.React.JavaScript] 'touch move', { target: 9,
-  pageY: 321,
-  locationX: 104.6666564941406,
-  changedTouches: [ [Circular] ],
-  locationY: 321,
-  identifier: 1,
-  pageX: 104.6666564941406,
-  touches: [ [Circular] ],
-  timestamp: 113328795.011996 }
-```
-
-So far this is pretty simple. Handling a button "tap" could be as simple as listening for the `onTouchStart` event.
-
-```
-<MyButton onTouchStart={(e) => { console.log("tap!") }}
-```
-
-This naive approach doesn't work if the button is in a scrollable view. The same touch event inside a button could mean scrolling or tapping.
-
-<video src="tap-vs-scroll.mp4" controls="true"></video>
-
-As you can see from the video, raw touch events aren't enough to know what the user wants to do. A touch event could be part of a swipe, pan, rotate, or any other gesture. ReactNative's [Gesture Responder System](https://facebook.github.io/react-native/docs/gesture-responder-system.html) is meant to handle this complexity, and it works the same way for iOS or Android!
-
-See [指尖上的魔法](https://github.com/jabez128/jabez128.github.io/issues/1) for more.
-
-### Touchable Components
-
-The Touchable family of builtin components are like the `a` or `button` of HTML, but with the touch handling sophistication we've just talked about. In particular, Touchable supports:
-
-+ `onPress`
-+ `onLongPress`
-+ Will not fire if touch turns out to be part of another gesture.
-
-[TouchableWithoutFeedback](https://facebook.github.io/react-native/docs/touchablewithoutfeedback.html#onpress) is the base class.TouchableHighlight, TouchableNativeFeedback, TouchableOpacity differs on how they visually respond to touches.
+The Touchable component needs to be able to reliably tell if a touch event is a tap, and not part of another gesture.
 
 You can read about some of the subtlety of handling a tap in the [Touchable source code](https://github.com/facebook/react-native/blob/1bc03871f391d4df958dd8af97c6002cdef5f943/Libraries/Components/Touchable/Touchable.js#L247-L300).
 
@@ -682,9 +577,9 @@ It accepts a style object as property:
 style={[this.props.style, {opacity: this.state.anim}]}
 ```
 
-So you can style TouchableOpacity like an ordinary View:
+So you can style `TouchableOpacity` like an ordinary `View`:
 
-```html
+```js
 <TouchableOpacity
   style={{backgroundColor: 'red', flex: 1, ...}}
   onPress={this.onPress}>
@@ -692,20 +587,35 @@ So you can style TouchableOpacity like an ordinary View:
 </TouchableOpacity>
 ```
 
-### Making A View Touchable
+And because `TouchableOpacity` is itself a `View`, you can nest any view hierarchy within it:
 
-By the way, you'd sometime start want to turn an ordinary view into a touchable view. You might start with:
 
+```js
+<TouchableOpacity
+  style={{backgroundColor: 'red', flex: 1, ...}}
+  onPress={this.onPress}>
+  <View>
+    <View>...</View>
+    <Text>Button</Text>
+  </View>
+</TouchableOpacity>
 ```
+
+
+## Making A View Touchable
+
+You might start with a static view:
+
+```js
 <View style={style.hello}>
   <Text>Hello<Text>
 </View>
 ```
 
-Don't use TouchableOpacity as a wrapper! This is bad:
+When you want to turn the static view into a touchable view, don't use `TouchableOpacity` as a wrapper! This is bad:
 
-```
-// Could break layout!
+```js
+// Could break existing layout!
 <TouchableOpacity>
   <View style={style.hello}>
     <Text>Hello<Text>
@@ -713,9 +623,9 @@ Don't use TouchableOpacity as a wrapper! This is bad:
 </TouchableOpacity>
 ```
 
-Remember, `TouchableOpacity` is a View. Wrapping `hello` could break your layout because TouchableOpacity becomes a nesting container. Instead, just replace View with TouchableOpacity:
+Remember, `TouchableOpacity` is a `View`, and using it as a wrapper introduces an extra container in the layout. Most of the time you can replace `View` with `TouchableOpacity`:
 
-```
+```js
 // Good!
 <TouchableOpacity style={style.hello}>
   <Text>Hello<Text>
@@ -725,8 +635,6 @@ Remember, `TouchableOpacity` is a View. Wrapping `hello` could break your layout
 # Start Timing!
 
 Let's get the Timer working. The timer itself is boring, so we've done it for you.
-
-[Download Timer.js](Timer.js).
 
 ```js
 var timer = new Timer(() => {
@@ -744,11 +652,13 @@ timer.pause();
 timer.reset();
 ```
 
+Download [Timer.js](Timer.js).
+
 You'll also need this helper function to format numbers for the timer display:
 
 ```js
 function zeroPadding(n) {
-  if(n == 0) {
+  if (n == 0) {
     return "00";
   } else if(n < 10) {
     return "0" + n;
@@ -764,37 +674,20 @@ function zeroPadding(n) {
 
 ### Exercise: Integrate the Timer object
 
-This is too simple to use Flux. Let's control the Timer in the App component. You could start with this:
+This is too simple to use Flux. Let's control the `Timer` with the `App` component. Add three methods:
 
 ```js
-const App = React.createClass({
-  getInitialState() {
-    return {
-      duration: {},
-      isRunning: false,
-    };
-  },
+onTimerUpdate() {
+}
 
-  componentDidMount() {
-    this.timer = new Timer(this.onTimerUpdate);
-    this.onTimerUpdate();
-  },
+toggleTimer() {
+}
 
-  onTimerUpdate() {
-    ???
-  },
-
-  toggleTimer() {
-    ???
-  },
-
-  resetTimer() {
-    ???
-  },
+resetTimer() {
 }
 ```
 
-And pass the timer control methods to the `Controls` component as properties:
+And pass these timer control methods to the `Controls` component as props:
 
 ```html
 <Controls
@@ -835,8 +728,8 @@ Your result:
 # Summary
 
 + Responve design for the mobile should optimize for the mobile experience.
-+ View is like `div`.
-+ Text is like `span`.
-+ Image is like `img`.
-+ TouchableOpacity is like `a`.
-+ Use onLayout to detect changes to layout.
++ `View` is sort of like `div`.
++ `Text` is sort of like `span`.
++ `Image` is sort of like `img`.
++ `TouchableOpacity` is sort of like `a`.
++ Use `onLayout` to detect changes to layout.
