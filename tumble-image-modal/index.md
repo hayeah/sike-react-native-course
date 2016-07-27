@@ -4,7 +4,7 @@ TODO: completed demo
 
 <Cn>
 
-# 图片模型
+# 图片 Modal（模态框）
 
 TODO: 完成 demo
 
@@ -81,7 +81,7 @@ Your result:
 
 <Cn>
 
-### 练习：模型的覆盖层
+### 练习：modal 的覆盖层
 
 创建 `PhotosModal` 的覆盖层。它应该覆盖整个屏幕。
 
@@ -138,10 +138,10 @@ In landscape:
 
 <Cn>
 
-### 练习：在模型中显示图片
+### 练习：在 modal 中显示图片
 
 + 图片应该是居中的；
-+ 图片应该刚刚好能放进模型。
++ 图片应该刚刚好能放进 modal 。
 
 这个任务稍稍有点棘手，因为你不能简单地说 "width: 100%"，然后就让图片自动调整尺寸来放进父容器。
 
@@ -220,7 +220,7 @@ In other words, the "global store" is the App's state, the "actions" are the App
 
 <Cn>
 
-# 显示／隐藏模型
+# 显示／隐藏 modal
 
 因为我们的应用比较简单，我们会使用最上层的 `App` 部件来维护状态，以此保持实现的简单。即使我们不会用到 Flux，我们依然保持了一些 Flux 的哲学。
 
@@ -333,10 +333,10 @@ interface Props {
 }
 ```
 
-添加两个开关来显示和隐藏模型：
+添加两个开关来显示和隐藏 modal ：
 
-+ 当一个博文的封面图被轻触时，用 `TouchableWithoutFeedback` 来显示模型；
-+ 当关闭图标被轻触时，用 `TouchableOpacity` 来隐藏模型；
++ 当一个博文的封面图被轻触时，用 `TouchableWithoutFeedback` 来显示 modal ；
++ 当关闭图标被轻触时，用 `TouchableOpacity` 来隐藏 modal ；
 + 照片列表的滚动位置应该被保存。
 
 
@@ -385,7 +385,7 @@ Your result:
 
 Android 有一个硬件的返回按钮。我们应该实现返回行为来满足 Android 用户的期望。
 
-+ 如果一个用户正在看一个模型，"back" 应该回到列表视图；
++ 如果一个用户正在看一个 modal，"back" 应该回到列表视图；
 + 如果一个用户已经看过了列表，那么 "back" 应该退出应用。
 
 使用 [BackAndroid](https://facebook.github.io/react-native/docs/backandroid.html#content) 模块来监听返回按钮的惦记。就像这样：
