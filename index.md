@@ -85,7 +85,7 @@ We'll build a cross-platform timer app for iOS and Android. You'll setup all the
 
 <Cn>
 
-<Project>
+<Project name="rn-timer">
 # 跨平台计时器
 
 React Native 将很多网页浏览器领域的概念移植到了原生手机应用的领域。你可以应用你已经了解的网页端知识（比如 Javascript，React，CSS，flexbox）来构建原生应用。
